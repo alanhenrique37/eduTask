@@ -1,0 +1,12 @@
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\bin\Debug\eduTask.exe.config
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\bin\Debug\eduTask.exe
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\bin\Debug\eduTask.pdb
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.csproj.AssemblyReference.cache
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.csproj.SuggestedBindingRedirects.cache
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.paginaPrincipal.resources
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.Properties.Resources.resources
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.csproj.GenerateResource.cache
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.csproj.CoreCompileInputs.cache
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.exe
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.pdb
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.AdicionarTarefa.resources
