@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace eduTask
 {
@@ -16,6 +17,7 @@ namespace eduTask
         public AdicionarTarefa()
         {
             InitializeComponent();
+            DAO conexao = new DAO();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -45,15 +47,15 @@ namespace eduTask
             maskedTextBox2.Region = new Region(path);
         } // Fim
 
-        private void ArredondarConteudo(TextBox textBox1, int raio)
+        private void ArredondarConteudo(MaskedTextBox maskedTextBox3, int raio)
         {
             GraphicsPath path = new GraphicsPath();
             path.AddArc(0, 0, raio, raio, 180, 90);
-            path.AddArc(textBox1.Width - raio, 0, raio, raio, 270, 90);
-            path.AddArc(textBox1.Width - raio, textBox1.Height - raio, raio, raio, 0, 90);
-            path.AddArc(0, textBox1.Height - raio, raio, raio, 90, 90);
+            path.AddArc(maskedTextBox3.Width - raio, 0, raio, raio, 270, 90);
+            path.AddArc(maskedTextBox3.Width - raio, maskedTextBox3.Height - raio, raio, raio, 0, 90);
+            path.AddArc(0, maskedTextBox3.Height - raio, raio, raio, 90, 90);
             path.CloseAllFigures();
-            textBox1.Region = new Region(path);
+            maskedTextBox3.Region = new Region(path);
         } // Fim
         private void ArredondarProfessor(MaskedTextBox maskedTextBox4, int raio)
         {
@@ -65,7 +67,7 @@ namespace eduTask
             path.CloseAllFigures();
             maskedTextBox4.Region = new Region(path);
         } // Fim
-        private void ArredondarBotaoAdicionarT(Button button1, int raio)
+        private void ArredondarBotaoAdicionarT(System.Windows.Forms.Button button1, int raio)
         {
             GraphicsPath path = new GraphicsPath();
             path.AddArc(0, 0, raio, raio, 180, 90);
@@ -76,7 +78,7 @@ namespace eduTask
             button1.Region = new Region(path);
         } // Fim
 
-        private void ArredondarBotaoVoltar(Button button2, int raio)
+        private void ArredondarBotaoVoltar(System.Windows.Forms.Button button2, int raio)
         {
             GraphicsPath path = new GraphicsPath();
             path.AddArc(0, 0, raio, raio, 180, 90);
@@ -87,6 +89,17 @@ namespace eduTask
             button2.Region = new Region(path);
         } // Fim
 
+        private void ArredondarCodigo(MaskedTextBox maskedTextBox5, int raio)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(0, 0, raio, raio, 180, 90);
+            path.AddArc(maskedTextBox5.Width - raio, 0, raio, raio, 270, 90);
+            path.AddArc(maskedTextBox5.Width - raio, maskedTextBox5.Height - raio, raio, raio, 0, 90);
+            path.AddArc(0, maskedTextBox5.Height - raio, raio, raio, 90, 90);
+            path.CloseAllFigures();
+            maskedTextBox5.Region = new Region(path);
+        } // Fim
+
 
 
         private void AdicionarTarefa_Load(object sender, EventArgs e)
@@ -95,7 +108,9 @@ namespace eduTask
             // Remove a borda do TextBox
             maskedTextBox1.BorderStyle = BorderStyle.None;
             maskedTextBox2.BorderStyle = BorderStyle.None;
-            textBox1.BorderStyle = BorderStyle.None;
+            maskedTextBox3.BorderStyle = BorderStyle.None;
+            maskedTextBox5.BorderStyle = BorderStyle.None;
+
             maskedTextBox4.BorderStyle = BorderStyle.None;
 
             button1.FlatStyle = FlatStyle.Flat;
@@ -113,13 +128,15 @@ namespace eduTask
 
             ArredondarMateria(maskedTextBox1, 10);
             ArredondarData(maskedTextBox2, 10);
-            ArredondarConteudo(textBox1, 10);
+            ArredondarConteudo(maskedTextBox3, 10);
             ArredondarProfessor(maskedTextBox4, 10);
             ArredondarBotaoAdicionarT(button1, 20);
             ArredondarBotaoVoltar(button2, 20);
+            ArredondarCodigo(maskedTextBox5, 10);
 
 
         }
+
 
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
@@ -148,15 +165,32 @@ namespace eduTask
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            //Instanciando a classe DAO
+            DAO inserir = new DAO();
+            //Coletando os dados dos campos
+            int codigo = Convert.ToInt32(maskedTextBox5.Text);
+            string materia = maskedTextBox1.Text;
+            string professor = maskedTextBox4.Text;
+            string dataa = maskedTextBox2.Text;
+            string conteudo =  maskedTextBox3.Text;
+            //Chamando o método inserir
+            MessageBox.Show(inserir.Inserir(codigo, materia, professor, dataa, conteudo));
+            this.Close();//Fechar a janela cadastrar
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-          
+            this.Close(); // Fecha o formulário atual
         }//botao voltar
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+    
+
+        private void maskedTextBox3_MaskInputRejected_1(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }//espaço conteudo
+
+        private void maskedTextBox5_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }

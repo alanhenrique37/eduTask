@@ -1,0 +1,170 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+using System.Windows.Forms;
+
+
+
+namespace eduTask
+{
+   class DAO
+    {
+        public MySqlConnection conexao;
+        public int[] codigo;
+        public string[] materia;
+        public string[] professor;
+        public string[] dataa;
+        public string[] conteudo;
+        public int i;
+        public int contador;
+      
+
+        public DAO()
+        {
+            conexao = new MySqlConnection("server=localhost;Database=eduTask;Uid=root;password=");
+            try
+            {
+                conexao.Open();//Tentando conectar com o banco
+               
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Algo deu errado\n\n\n" + erro);
+            }
+        }//fim do construtor
+
+        public string Inserir(int codigo, string materia, string professor, string dataa, string conteudo)
+        {
+            string inserir = $"Insert into tarefas(codigo,materia, professor, dataa, conteudo) values('{codigo}','{materia}','{professor}', '{dataa}', '{conteudo}')";
+            MySqlCommand sql = new MySqlCommand(inserir, conexao);
+            string resultado = sql.ExecuteNonQuery() + " Executado!";
+            return resultado;
+        }//fim do método inserir
+
+        public void PreencherVetor()
+        {
+
+            string query = "select * from tarefas";
+
+            //instanciar vetores
+            this.codigo = new int[100];
+            this.materia = new string[100];
+            this.professor = new string[100];
+            this.dataa = new string[100];
+            this.conteudo = new string[100];
+
+            //preparando comando para o banco
+
+            MySqlCommand Sql = new MySqlCommand(query, conexao);
+            //chamar o leitor do banco de dados
+            MySqlDataReader leitura = Sql.ExecuteReader();
+
+            i = 0;//instanciando o contador
+            contador = 0;
+            while (leitura.Read())
+            {
+                codigo[i] = Convert.ToInt32(leitura["codigo"]);
+                materia[i] = leitura["materia"] + "";
+                professor[i] = leitura["professor"] + "";
+                dataa[i] = leitura["dataa"] + "";
+                conteudo[i] = leitura["conteudo"] + "";
+                i++;//contador gira
+                contador++;//conta quantos dados preenchem o vetor
+            }//fim do while
+
+            //encerrar processo de leitura
+            leitura.Close();
+        }//fim do método
+
+        public int QuantidadeDeDados()
+        {
+            return contador;
+        }//fim qntd de dados
+
+
+        public string Atualizar(string materia, string campo, string dado)
+        {
+            string query = $"update tarefas set {campo} = '{dado}' where materia = '{materia}'";
+            MySqlCommand sql = new MySqlCommand(query, conexao);
+            string resultado = sql.ExecuteNonQuery() + "Atualizado!";
+            return resultado;
+        }//fim metodo atualizar
+
+        public string Excluir(int conteudo)
+        {
+            string query = $"delete from tarefas where codigo = '{conteudo}'";
+            MySqlCommand sql = new MySqlCommand(query, conexao);
+            string resultado = sql.ExecuteNonQuery() + " Deletado";
+            return resultado;
+        }
+
+        public string ConsultarPorMateria(string mat)
+        {
+            PreencherVetor();//Preenchendo o vetor com os dados do banco
+
+            i = 0;//Instanciando o contador
+            while (i < QuantidadeDeDados())
+            {
+                if (materia[i] == mat)
+                {
+                    return Convert.ToString(i);
+                }
+                i++;//Contador gire
+            }//fim do while
+
+            return Convert.ToString(- 1);
+        
+        }//fim do método
+
+
+        public string RetornarMateria(string mat)
+        {
+            int posicao = Convert.ToInt32(ConsultarPorMateria(mat));
+            if (posicao > -1)
+            {
+                return materia[posicao];
+            }
+            return "Código digitado não é valido!";
+        }//fim do métodoRetornarMateria
+
+        public string RetornarProfessor(string mat)
+        {
+            int posicao = Convert.ToInt32(ConsultarPorMateria(mat));
+            if (posicao > -1)
+            {
+                return professor[posicao];
+            }
+            return "Código digitado não é valido!";
+        }//fim do métodoRetornarProfessor
+
+        public string RetornarData(string mat)
+        {
+            int posicao = Convert.ToInt32(ConsultarPorMateria(mat));
+            if (posicao > -1)
+            {
+                return dataa[posicao];
+            }
+            return "Código digitado não é valido!";
+        }//fim do métodoRetornarData
+
+        public string RetornarConteudo(string mat)
+        {
+            int posicao = Convert.ToInt32(ConsultarPorMateria(mat));
+            if (posicao > -1)
+            {
+                return conteudo[posicao];
+            }
+            return "Código digitado não é valido!";
+        }//fim do métodoRetornarConteudo
+
+
+
+
+
+
+    }//fim class dao
+}

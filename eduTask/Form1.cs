@@ -13,9 +13,14 @@ namespace eduTask
 {
     public partial class paginaPrincipal : Form
     {
+        DAO consul;
         public paginaPrincipal()
         {
+            consul = new DAO();
             InitializeComponent();
+            ConfigurarDataGrid();//Configuro a estrutura da coluna e linha
+            NomeColunas();//Nomeando as colunas
+            AdicionarDados();//Adicionando os dados para visualizar
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -24,6 +29,33 @@ namespace eduTask
            
 
         }
+        public void NomeColunas()
+        {
+            dataGridView1.Columns[0].Name = "Código";
+            dataGridView1.Columns[1].Name = "Matéria";
+            dataGridView1.Columns[2].Name = "Professor";
+            dataGridView1.Columns[3].Name = "Data";
+            dataGridView1.Columns[4].Name = "Conteúdo";
+        }//fim do nomeColunas
+
+        public void ConfigurarDataGrid()
+        {
+            dataGridView1.AllowUserToAddRows = false;//Não pode adicionar linhas
+            dataGridView1.AllowUserToDeleteRows = false;//Não pode apagar linhas
+            dataGridView1.AllowUserToResizeColumns = false;//Não pode redimensionar as colunas
+            dataGridView1.AllowUserToResizeRows = false;//Não pode redimensionar as linhas
+
+            dataGridView1.ColumnCount = 5;
+        }//fim do método de configuração
+
+        public void AdicionarDados()
+        {
+            consul.PreencherVetor();//Preencher os vetores c/dados do bd
+            for (int i = 0; i < consul.QuantidadeDeDados(); i++)
+            {
+                dataGridView1.Rows.Add(consul.codigo[i], consul.materia[i], consul.professor[i], consul.dataa[i], consul.conteudo[i]);
+            }//fim do for
+        }//fim do adicionarDados
 
         private void Criar_Click(object sender, EventArgs e)
         {
@@ -121,16 +153,6 @@ namespace eduTask
         } // Fim
 
 
-        private void ArredondarControle(Control controle, int raio)
-        {
-            GraphicsPath path = new GraphicsPath();
-            path.AddArc(0, 0, raio, raio, 180, 90);
-            path.AddArc(controle.Width - raio, 0, raio, raio, 270, 90);
-            path.AddArc(controle.Width - raio, controle.Height - raio, raio, raio, 0, 90);
-            path.AddArc(0, controle.Height - raio, raio, raio, 90, 90);
-            path.CloseAllFigures();
-            controle.Region = new Region(path);
-        } //Fim
 
         private void paginaPrincipal_Load(object sender, EventArgs e)
         {
@@ -191,8 +213,11 @@ namespace eduTask
             ArredondarListView3(listView3, 20);
             ArredondarListView4(listView4, 20);
 
-
+           
           
+
+
+
 
 
 
@@ -264,8 +289,17 @@ namespace eduTask
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            verTodas ver = new verTodas();
+            ver.ShowDialog();
         }//Botão ver todas Tarefas
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+      
+
+        }
+
+
 
         //private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         //{
