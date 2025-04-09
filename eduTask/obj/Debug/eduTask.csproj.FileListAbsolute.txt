@@ -44,3 +44,5 @@ C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\bin\Debug\System.Numerics.Vec
 C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.csproj.CopyComplete
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.ExcluirTarefa.resources
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.EditarTarefa.resources

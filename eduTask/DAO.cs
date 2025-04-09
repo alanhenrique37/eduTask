@@ -102,14 +102,14 @@ namespace eduTask
             return resultado;
         }
 
-        public string ConsultarPorMateria(string mat)
+        public string ConsultarPorMateria(int cod)
         {
             PreencherVetor();//Preenchendo o vetor com os dados do banco
 
             i = 0;//Instanciando o contador
             while (i < QuantidadeDeDados())
             {
-                if (materia[i] == mat)
+                if (codigo[i] == cod)
                 {
                     return Convert.ToString(i);
                 }
@@ -121,9 +121,9 @@ namespace eduTask
         }//fim do método
 
 
-        public string RetornarMateria(string mat)
+        public string RetornarMateria(int cod)
         {
-            int posicao = Convert.ToInt32(ConsultarPorMateria(mat));
+            int posicao = Convert.ToInt32(ConsultarPorMateria(cod));
             if (posicao > -1)
             {
                 return materia[posicao];
@@ -131,9 +131,9 @@ namespace eduTask
             return "Código digitado não é valido!";
         }//fim do métodoRetornarMateria
 
-        public string RetornarProfessor(string mat)
+        public string RetornarProfessor(int cod)
         {
-            int posicao = Convert.ToInt32(ConsultarPorMateria(mat));
+            int posicao = Convert.ToInt32(ConsultarPorMateria(cod));
             if (posicao > -1)
             {
                 return professor[posicao];
@@ -141,9 +141,9 @@ namespace eduTask
             return "Código digitado não é valido!";
         }//fim do métodoRetornarProfessor
 
-        public string RetornarData(string mat)
+        public string RetornarData(int cod)
         {
-            int posicao = Convert.ToInt32(ConsultarPorMateria(mat));
+            int posicao = Convert.ToInt32(ConsultarPorMateria(cod));
             if (posicao > -1)
             {
                 return dataa[posicao];
@@ -151,9 +151,9 @@ namespace eduTask
             return "Código digitado não é valido!";
         }//fim do métodoRetornarData
 
-        public string RetornarConteudo(string mat)
+        public string RetornarConteudo(int cod)
         {
-            int posicao = Convert.ToInt32(ConsultarPorMateria(mat));
+            int posicao = Convert.ToInt32(ConsultarPorMateria(cod));
             if (posicao > -1)
             {
                 return conteudo[posicao];
