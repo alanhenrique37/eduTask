@@ -19,6 +19,7 @@ namespace eduTask
         public string[] professor;
         public string[] dataa;
         public string[] conteudo;
+        public string[] situacao;
         public int i;
         public int contador;
       
@@ -37,9 +38,9 @@ namespace eduTask
             }
         }//fim do construtor
 
-        public string Inserir(int codigo, string materia, string professor, string dataa, string conteudo)
+        public string Inserir(int codigo, string materia, string professor, string dataa, string conteudo, string situacao)
         {
-            string inserir = $"Insert into tarefas(codigo,materia, professor, dataa, conteudo) values('{codigo}','{materia}','{professor}', '{dataa}', '{conteudo}')";
+            string inserir = $"Insert into tarefas(codigo,materia, professor, dataa, conteudo,situacao) values('{codigo}','{materia}','{professor}', '{dataa}', '{conteudo}', '{situacao}')";
             MySqlCommand sql = new MySqlCommand(inserir, conexao);
             string resultado = sql.ExecuteNonQuery() + " Executado!";
             return resultado;
@@ -56,6 +57,8 @@ namespace eduTask
             this.professor = new string[100];
             this.dataa = new string[100];
             this.conteudo = new string[100];
+            this.situacao = new string[100];
+
 
             //preparando comando para o banco
 
@@ -72,6 +75,7 @@ namespace eduTask
                 professor[i] = leitura["professor"] + "";
                 dataa[i] = leitura["dataa"] + "";
                 conteudo[i] = leitura["conteudo"] + "";
+                situacao[i] = leitura["situacao"] + "";
                 i++;//contador gira
                 contador++;//conta quantos dados preenchem o vetor
             }//fim do while
@@ -86,9 +90,9 @@ namespace eduTask
         }//fim qntd de dados
 
 
-        public string Atualizar(string materia, string campo, string dado)
+        public string Atualizar(int codigo, string campo, string dado)
         {
-            string query = $"update tarefas set {campo} = '{dado}' where materia = '{materia}'";
+            string query = $"update tarefas set {campo} = '{dado}' where codigo = '{codigo}'";
             MySqlCommand sql = new MySqlCommand(query, conexao);
             string resultado = sql.ExecuteNonQuery() + "Atualizado!";
             return resultado;
@@ -160,6 +164,18 @@ namespace eduTask
             }
             return "Código digitado não é valido!";
         }//fim do métodoRetornarConteudo
+
+        public string RetornarSituacao(int cod)
+        {
+            int posicao = Convert.ToInt32(ConsultarPorMateria(cod));
+            if (posicao > -1)
+            {
+                return situacao[posicao];
+            }
+            return "Código digitado não é valido!";
+        }//fim do métodoRetornarConteudo
+
+
 
 
 

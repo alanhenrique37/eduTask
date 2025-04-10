@@ -13,6 +13,7 @@ namespace eduTask
 {
     public partial class paginaPrincipal : Form
     {
+        
         DAO consul;
         public paginaPrincipal()
         {
@@ -21,6 +22,7 @@ namespace eduTask
             ConfigurarDataGrid();//Configuro a estrutura da coluna e linha
             NomeColunas();//Nomeando as colunas
             AdicionarDados();//Adicionando os dados para visualizar
+           
             
         }
 
@@ -37,6 +39,7 @@ namespace eduTask
             dataGridView1.Columns[2].Name = "Professor";
             dataGridView1.Columns[3].Name = "Data";
             dataGridView1.Columns[4].Name = "Conteúdo";
+            dataGridView1.Columns[5].Name = "Status";
         }//fim do nomeColunas
 
         public void ConfigurarDataGrid()
@@ -46,7 +49,7 @@ namespace eduTask
             dataGridView1.AllowUserToResizeColumns = false;//Não pode redimensionar as colunas
             dataGridView1.AllowUserToResizeRows = false;//Não pode redimensionar as linhas
 
-            dataGridView1.ColumnCount = 5;
+            dataGridView1.ColumnCount = 6;
         }//fim do método de configuração
 
         public void AdicionarDados()
@@ -54,7 +57,7 @@ namespace eduTask
             consul.PreencherVetor();//Preencher os vetores c/dados do bd
             for (int i = 0; i < consul.QuantidadeDeDados(); i++)
             {
-                dataGridView1.Rows.Add(consul.codigo[i], consul.materia[i], consul.professor[i], consul.dataa[i], consul.conteudo[i]);
+                dataGridView1.Rows.Add(consul.codigo[i], consul.materia[i], consul.professor[i], consul.dataa[i], consul.conteudo[i], consul.situacao[i]);
             }//fim do for
         }//fim do adicionarDados
 
@@ -407,6 +410,8 @@ namespace eduTask
 
         }
 
+   
+
         private void button3_Click(object sender, EventArgs e)
         {
             AdicionarTarefa adi = new AdicionarTarefa();
@@ -437,7 +442,8 @@ namespace eduTask
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            consultarMatematica conMat = new consultarMatematica();
+            conMat.ShowDialog();
         }
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
@@ -447,7 +453,8 @@ namespace eduTask
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            consultarPortugues conPor = new consultarPortugues();
+            conPor.ShowDialog();
         }
 
         private void listView5_SelectedIndexChanged(object sender, EventArgs e)
@@ -467,12 +474,14 @@ namespace eduTask
 
         private void button8_Click(object sender, EventArgs e)
         {
-
+            consultarBiologia conBio = new consultarBiologia();
+            conBio.ShowDialog();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-
+            consultarHistoria conHis = new consultarHistoria();
+            conHis.ShowDialog();
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -487,6 +496,15 @@ namespace eduTask
 
         private void dataGridView1_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
         {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Data")
+            {
+                DateTime dtVenci = DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                if ((dtVenci - DateTime.Today).TotalDays <= 3)
+                {
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(255, 128, 128);
+
+                }
+            }
 
         }
 
@@ -497,12 +515,16 @@ namespace eduTask
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            consultarGeografia conGeo = new consultarGeografia();
+            conGeo.ShowDialog();
         }
 
         private void listView8_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        
+        }
     }
-}
+

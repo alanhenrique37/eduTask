@@ -105,6 +105,36 @@
     <Compile Include="AdicionarTarefa.Designer.cs">
       <DependentUpon>AdicionarTarefa.cs</DependentUpon>
     </Compile>
+    <Compile Include="consultarBiologia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="consultarBiologia.Designer.cs">
+      <DependentUpon>consultarBiologia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="consultarGeografia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="consultarGeografia.Designer.cs">
+      <DependentUpon>consultarGeografia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="consultarHistoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="consultarHistoria.Designer.cs">
+      <DependentUpon>consultarHistoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="consultarMatematica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="consultarMatematica.Designer.cs">
+      <DependentUpon>consultarMatematica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="consultarPortugues.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="consultarPortugues.Designer.cs">
+      <DependentUpon>consultarPortugues.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO.cs" />
     <Compile Include="EditarTarefa.cs">
       <SubType>Form</SubType>
@@ -134,6 +164,21 @@
     </Compile>
     <EmbeddedResource Include="AdicionarTarefa.resx">
       <DependentUpon>AdicionarTarefa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="consultarBiologia.resx">
+      <DependentUpon>consultarBiologia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="consultarGeografia.resx">
+      <DependentUpon>consultarGeografia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="consultarHistoria.resx">
+      <DependentUpon>consultarHistoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="consultarMatematica.resx">
+      <DependentUpon>consultarMatematica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="consultarPortugues.resx">
+      <DependentUpon>consultarPortugues.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditarTarefa.resx">
       <DependentUpon>EditarTarefa.cs</DependentUpon>

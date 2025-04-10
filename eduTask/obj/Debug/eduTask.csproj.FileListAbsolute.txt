@@ -46,3 +46,8 @@ C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\bin\Debug\System.Threading.Ta
 C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.csproj.CopyComplete
 C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.ExcluirTarefa.resources
 C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.EditarTarefa.resources
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.consultarMatematica.resources
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.consultarPortugues.resources
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.consultarBiologia.resources
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.consultarHistoria.resources
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.consultarGeografia.resources

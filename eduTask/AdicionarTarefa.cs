@@ -173,8 +173,9 @@ namespace eduTask
             string professor = maskedTextBox4.Text;
             string dataa = maskedTextBox2.Text;
             string conteudo =  maskedTextBox3.Text;
+            string situacao = maskedTextBox6.Text;
             //Chamando o método inserir
-            MessageBox.Show(inserir.Inserir(codigo, materia, professor, dataa, conteudo));
+            MessageBox.Show(inserir.Inserir(codigo, materia, professor, dataa, conteudo, situacao));
             this.Close();//Fechar a janela cadastrar
         }
 
@@ -191,6 +192,11 @@ namespace eduTask
         }//espaço conteudo
 
         private void maskedTextBox5_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox6_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }

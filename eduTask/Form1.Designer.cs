@@ -58,6 +58,7 @@
             this.listView8 = new System.Windows.Forms.ListView();
             this.button6 = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -121,11 +122,11 @@
             // 
             // listView1
             // 
-            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(136)))), ((int)(((byte)(206)))));
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(76, 148);
+            this.listView1.Location = new System.Drawing.Point(76, 137);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(901, 135);
+            this.listView1.Size = new System.Drawing.Size(901, 168);
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
@@ -134,7 +135,7 @@
             // 
             this.listView3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(76, 327);
+            this.listView3.Location = new System.Drawing.Point(76, 342);
             this.listView3.Name = "listView3";
             this.listView3.Size = new System.Drawing.Size(258, 379);
             this.listView3.TabIndex = 6;
@@ -146,7 +147,7 @@
             this.listView4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.listView4.ForeColor = System.Drawing.Color.DimGray;
             this.listView4.HideSelection = false;
-            this.listView4.Location = new System.Drawing.Point(389, 327);
+            this.listView4.Location = new System.Drawing.Point(389, 342);
             this.listView4.Name = "listView4";
             this.listView4.Size = new System.Drawing.Size(588, 379);
             this.listView4.TabIndex = 7;
@@ -158,7 +159,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(136)))), ((int)(((byte)(206)))));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(952, 679);
+            this.button3.Location = new System.Drawing.Point(951, 671);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(93, 93);
             this.button3.TabIndex = 9;
@@ -169,14 +170,14 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(89, 157);
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(136)))), ((int)(((byte)(206)))));
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(89, 154);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(389, 28);
+            this.label1.Size = new System.Drawing.Size(418, 40);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Tarefas próximas do vencimento";
+            this.label1.Text = "Bem-vindo ao EduTask!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -186,7 +187,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(404, 340);
+            this.label2.Location = new System.Drawing.Point(404, 355);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 28);
             this.label2.TabIndex = 11;
@@ -207,7 +208,7 @@
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.button4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(890, 345);
+            this.button4.Location = new System.Drawing.Point(890, 360);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 13;
@@ -221,7 +222,7 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(89, 340);
+            this.label4.Location = new System.Drawing.Point(89, 355);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 28);
             this.label4.TabIndex = 14;
@@ -232,7 +233,7 @@
             this.button5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button5.Location = new System.Drawing.Point(94, 392);
+            this.button5.Location = new System.Drawing.Point(94, 407);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(125, 50);
             this.button5.TabIndex = 16;
@@ -245,7 +246,7 @@
             // 
             this.listView2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(94, 392);
+            this.listView2.Location = new System.Drawing.Point(94, 407);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(187, 50);
             this.listView2.TabIndex = 17;
@@ -256,7 +257,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(227, 394);
+            this.pictureBox2.Location = new System.Drawing.Point(227, 409);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(47, 46);
             this.pictureBox2.TabIndex = 19;
@@ -266,7 +267,7 @@
             // 
             this.listView5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.listView5.HideSelection = false;
-            this.listView5.Location = new System.Drawing.Point(94, 456);
+            this.listView5.Location = new System.Drawing.Point(94, 471);
             this.listView5.Name = "listView5";
             this.listView5.Size = new System.Drawing.Size(187, 50);
             this.listView5.TabIndex = 20;
@@ -278,7 +279,7 @@
             this.button7.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
             this.button7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button7.Location = new System.Drawing.Point(94, 456);
+            this.button7.Location = new System.Drawing.Point(94, 471);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(125, 50);
             this.button7.TabIndex = 21;
@@ -291,7 +292,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(234, 465);
+            this.pictureBox3.Location = new System.Drawing.Point(234, 480);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(38, 37);
             this.pictureBox3.TabIndex = 22;
@@ -301,7 +302,7 @@
             // 
             this.listView6.BackColor = System.Drawing.Color.WhiteSmoke;
             this.listView6.HideSelection = false;
-            this.listView6.Location = new System.Drawing.Point(94, 520);
+            this.listView6.Location = new System.Drawing.Point(94, 535);
             this.listView6.Name = "listView6";
             this.listView6.Size = new System.Drawing.Size(187, 50);
             this.listView6.TabIndex = 23;
@@ -313,7 +314,7 @@
             this.button8.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
             this.button8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button8.Location = new System.Drawing.Point(94, 520);
+            this.button8.Location = new System.Drawing.Point(94, 535);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(125, 50);
             this.button8.TabIndex = 24;
@@ -326,7 +327,7 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(235, 529);
+            this.pictureBox4.Location = new System.Drawing.Point(235, 544);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(37, 36);
             this.pictureBox4.TabIndex = 25;
@@ -337,7 +338,7 @@
             // 
             this.listView7.BackColor = System.Drawing.Color.WhiteSmoke;
             this.listView7.HideSelection = false;
-            this.listView7.Location = new System.Drawing.Point(94, 584);
+            this.listView7.Location = new System.Drawing.Point(94, 599);
             this.listView7.Name = "listView7";
             this.listView7.Size = new System.Drawing.Size(187, 50);
             this.listView7.TabIndex = 26;
@@ -349,7 +350,7 @@
             this.button9.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button9.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
             this.button9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button9.Location = new System.Drawing.Point(94, 584);
+            this.button9.Location = new System.Drawing.Point(94, 599);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(125, 50);
             this.button9.TabIndex = 27;
@@ -361,7 +362,7 @@
             // pictureBox5
             // 
             this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.Location = new System.Drawing.Point(235, 593);
+            this.pictureBox5.Location = new System.Drawing.Point(235, 608);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(37, 32);
             this.pictureBox5.TabIndex = 28;
@@ -372,7 +373,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(409, 374);
+            this.dataGridView1.Location = new System.Drawing.Point(409, 389);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
@@ -385,7 +386,7 @@
             // 
             this.listView8.BackColor = System.Drawing.Color.WhiteSmoke;
             this.listView8.HideSelection = false;
-            this.listView8.Location = new System.Drawing.Point(94, 646);
+            this.listView8.Location = new System.Drawing.Point(94, 661);
             this.listView8.Name = "listView8";
             this.listView8.Size = new System.Drawing.Size(187, 50);
             this.listView8.TabIndex = 30;
@@ -397,7 +398,7 @@
             this.button6.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
             this.button6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button6.Location = new System.Drawing.Point(94, 646);
+            this.button6.Location = new System.Drawing.Point(94, 661);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(125, 50);
             this.button6.TabIndex = 31;
@@ -409,11 +410,24 @@
             // pictureBox6
             // 
             this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
-            this.pictureBox6.Location = new System.Drawing.Point(237, 656);
+            this.pictureBox6.Location = new System.Drawing.Point(237, 671);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(35, 31);
             this.pictureBox6.TabIndex = 32;
             this.pictureBox6.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(136)))), ((int)(((byte)(206)))));
+            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(91, 216);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(826, 56);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "Aqui você encontra suas tarefas organizadas para facilitar seu estudo \r\ne alcança" +
+    "r o sucesso!";
             // 
             // paginaPrincipal
             // 
@@ -421,6 +435,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.ClientSize = new System.Drawing.Size(1079, 811);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.listView8);
@@ -442,7 +458,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.listView4);
             this.Controls.Add(this.listView3);
             this.Controls.Add(this.listView1);
@@ -498,6 +513,7 @@
         private System.Windows.Forms.ListView listView8;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label5;
     }
 }
 

@@ -65,19 +65,22 @@
             this.button2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(136)))), ((int)(((byte)(206)))));
-            this.button2.Location = new System.Drawing.Point(731, 443);
+            this.button2.Location = new System.Drawing.Point(731, 452);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(198, 35);
             this.button2.TabIndex = 31;
             this.button2.Text = "Voltar";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.BorderSize = 0;
             this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(731, 398);
+            this.button1.Location = new System.Drawing.Point(731, 407);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(198, 37);
             this.button1.TabIndex = 30;

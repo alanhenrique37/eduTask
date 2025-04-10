@@ -22,7 +22,13 @@ namespace eduTask
 
         private void ExcluirTarefa_Load(object sender, EventArgs e)
         {
+            button1.FlatStyle = FlatStyle.Flat;
 
+            button1.FlatAppearance.BorderSize = 0; // Remove a borda
+
+            button2.FlatStyle = FlatStyle.Flat;
+
+            button2.FlatAppearance.BorderSize = 0; // Remove a borda
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,6 +39,11 @@ namespace eduTask
         }
 
         private void maskedTextBox5_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

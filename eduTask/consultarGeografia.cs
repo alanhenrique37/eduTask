@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,24 +12,17 @@ using System.Windows.Forms;
 
 namespace eduTask
 {
-    public partial class verTodas : Form
+    public partial class consultarGeografia : Form
     {
         DAO consul;
-        public verTodas()
+        public consultarGeografia()
         {
-            consul = new DAO();
             InitializeComponent();
-            ConfigurarDataGrid();//Configuro a estrutura da coluna e linha
-            NomeColunas();//Nomeando as colunas
-            AdicionarDados();//Adicionando os dados para visualizar
+            consul = new DAO();
+            ConfigurarDataGrid();//configura a estrutura da coluna e linhas
+            NomeColunas();//nomeando as colunas
+            adicionardados();//adicionando os dados para vizualizar
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
 
         public void NomeColunas()
         {
@@ -37,6 +31,7 @@ namespace eduTask
             dataGridView1.Columns[2].Name = "Professor";
             dataGridView1.Columns[3].Name = "Data";
             dataGridView1.Columns[4].Name = "Conteúdo";
+            dataGridView1.Columns[5].Name = "Status";
         }//fim do nomeColunas
 
         public void ConfigurarDataGrid()
@@ -46,36 +41,44 @@ namespace eduTask
             dataGridView1.AllowUserToResizeColumns = false;//Não pode redimensionar as colunas
             dataGridView1.AllowUserToResizeRows = false;//Não pode redimensionar as linhas
 
-            dataGridView1.ColumnCount = 5;
+            dataGridView1.ColumnCount = 6;
         }//fim do método de configuração
 
-        public void AdicionarDados()
+        public void adicionardados()
         {
-            consul.PreencherVetor();//Preencher os vetores c/dados do bd
+            consul.PreencherVetor(); // Preencher os vetores com dados do banco
+
+            // Percorrer todos os dados
             for (int i = 0; i < consul.QuantidadeDeDados(); i++)
             {
-                dataGridView1.Rows.Add(consul.codigo[i], consul.materia[i], consul.professor[i], consul.dataa[i], consul.conteudo[i]);
-            }//fim do for
-        }//fim do adicionarDados
+                // Remover acentos e transformar para minúsculas
 
-        private void verTodas_Load(object sender, EventArgs e)
+                string materiaSemAcento = RemoverAcentos(consul.materia[i]).ToLower();
+
+                // Verificar se a matéria é Matemática
+                if (materiaSemAcento == "geografia") // ou se a comparação for com "Matemática"
+                {
+                    // Adicionar a linha somente se a matéria for Matemática
+                    dataGridView1.Rows.Add(consul.codigo[i], consul.materia[i], consul.professor[i], consul.dataa[i], consul.conteudo[i], consul.situacao[i]);
+                }
+            } // fim do for
+        } // fim do adicionar dados
+
+        private string RemoverAcentos(string texto)
         {
-           
-
-            button1.FlatStyle = FlatStyle.Flat;
-
-            button1.FlatAppearance.BorderSize = 0; // Remove a borda
-
-            ArredondarBotaoEditar(button1, 10);
-
-            button2.FlatStyle = FlatStyle.Flat;
-
-            button2.FlatAppearance.BorderSize = 0; // Remove a borda
-
-            ArredondarBotaoExcluir(button2, 10);
+            string normalizedString = texto.Normalize(NormalizationForm.FormD);
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (char c in normalizedString)
+            {
+                if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+                {
+                    stringBuilder.Append(c);
+                }
+            }
+            return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
         }
 
-        private void ArredondarBotaoEditar(Button button1, int raio)
+        private void ArredondarBotaoAtu(Button button1, int raio)
         {
             GraphicsPath path = new GraphicsPath();
             path.AddArc(0, 0, raio, raio, 180, 90);
@@ -97,6 +100,21 @@ namespace eduTask
             button2.Region = new Region(path);
         } // Fim
 
+
+        private void consultarGeografia_Load(object sender, EventArgs e)
+        {
+            button1.FlatStyle = FlatStyle.Flat;
+
+            button1.FlatAppearance.BorderSize = 0; // Remove a borda
+
+            button2.FlatStyle = FlatStyle.Flat;
+
+            button2.FlatAppearance.BorderSize = 0; // Remove a borda
+
+            ArredondarBotaoAtu(button1, 10);
+            ArredondarBotaoExcluir(button2, 10);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             EditarTarefa edi = new EditarTarefa();
@@ -107,33 +125,6 @@ namespace eduTask
         {
             ExcluirTarefa exc = new ExcluirTarefa();
             exc.ShowDialog();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "Data")
-            {
-                DateTime dtVenci = DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-                if ((dtVenci - DateTime.Today).TotalDays <= 3)
-                {
-                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(255, 128, 128);
-
-                }
-            }
-
-
-            // Ajustando a largura de todas as colunas
-            foreach (DataGridViewColumn col in dataGridView1.Columns)
-            {
-                col.Width = 200;  // Largura de todas as colunas
-            }
-
-            // Ajustando a altura das linhas
-            dataGridView1.RowTemplate.Height = 80;  // Tamanho das linhas
-
-            // Aumentando o tamanho da fonte dos cabeçalhos das colunas
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);  // Fonte dos cabeçalhos das colunas
-
         }
     }
 }
