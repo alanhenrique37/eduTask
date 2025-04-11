@@ -45,7 +45,7 @@ namespace eduTask
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Close(); // Fecha o formulário atual
         }
     }
 }

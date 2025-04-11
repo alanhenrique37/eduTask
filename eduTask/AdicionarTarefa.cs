@@ -14,10 +14,12 @@ namespace eduTask
 {
     public partial class AdicionarTarefa : Form
     {
+        paginaPrincipal form;
         public AdicionarTarefa()
         {
             InitializeComponent();
             DAO conexao = new DAO();
+            form = new paginaPrincipal();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -100,6 +102,17 @@ namespace eduTask
             maskedTextBox5.Region = new Region(path);
         } // Fim
 
+        private void ArredondarStatus(MaskedTextBox maskedTextBox6, int raio)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(0, 0, raio, raio, 180, 90);
+            path.AddArc(maskedTextBox6.Width - raio, 0, raio, raio, 270, 90);
+            path.AddArc(maskedTextBox6.Width - raio, maskedTextBox6.Height - raio, raio, raio, 0, 90);
+            path.AddArc(0, maskedTextBox6.Height - raio, raio, raio, 90, 90);
+            path.CloseAllFigures();
+            maskedTextBox6.Region = new Region(path);
+        } // Fim
+
 
 
         private void AdicionarTarefa_Load(object sender, EventArgs e)
@@ -110,6 +123,7 @@ namespace eduTask
             maskedTextBox2.BorderStyle = BorderStyle.None;
             maskedTextBox3.BorderStyle = BorderStyle.None;
             maskedTextBox5.BorderStyle = BorderStyle.None;
+            maskedTextBox6.BorderStyle = BorderStyle.None;
 
             maskedTextBox4.BorderStyle = BorderStyle.None;
 
@@ -133,6 +147,7 @@ namespace eduTask
             ArredondarBotaoAdicionarT(button1, 20);
             ArredondarBotaoVoltar(button2, 20);
             ArredondarCodigo(maskedTextBox5, 10);
+            ArredondarStatus(maskedTextBox6, 10);
 
 
         }
@@ -176,6 +191,8 @@ namespace eduTask
             string situacao = maskedTextBox6.Text;
             //Chamando o método inserir
             MessageBox.Show(inserir.Inserir(codigo, materia, professor, dataa, conteudo, situacao));
+            
+          
             this.Close();//Fechar a janela cadastrar
         }
 

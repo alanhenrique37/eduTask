@@ -22,21 +22,38 @@ namespace eduTask
         public string[] situacao;
         public int i;
         public int contador;
-      
+
 
         public DAO()
         {
             conexao = new MySqlConnection("server=localhost;Database=eduTask;Uid=root;password=");
             try
             {
-                conexao.Open();//Tentando conectar com o banco
-               
+                conexao.Open(); // já abre a conexão aqui
             }
             catch (Exception erro)
             {
                 MessageBox.Show("Algo deu errado\n\n\n" + erro);
             }
-        }//fim do construtor
+        }
+
+        // Método que executa contagens genéricas
+        public int Contar(string query)
+        {
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, conexao))
+                {
+                    object result = cmd.ExecuteScalar();
+                    return Convert.ToInt32(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao contar: " + ex.Message);
+                return 0;
+            }
+        }
 
         public string Inserir(int codigo, string materia, string professor, string dataa, string conteudo, string situacao)
         {
@@ -45,6 +62,8 @@ namespace eduTask
             string resultado = sql.ExecuteNonQuery() + " Executado!";
             return resultado;
         }//fim do método inserir
+
+     
 
         public void PreencherVetor()
         {
@@ -175,6 +194,8 @@ namespace eduTask
             return "Código digitado não é valido!";
         }//fim do métodoRetornarConteudo
 
+
+     
 
 
 

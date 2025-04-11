@@ -51,3 +51,4 @@ C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.consultarPo
 C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.consultarBiologia.resources
 C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.consultarHistoria.resources
 C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.consultarGeografia.resources
+C:\Users\alan.hsabreu\source\repos\eduTask\eduTask\obj\Debug\eduTask.relatorioTarefas.resources

@@ -126,5 +126,29 @@ namespace eduTask
             ExcluirTarefa exc = new ExcluirTarefa();
             exc.ShowDialog();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Data")
+            {
+                DateTime dtVenci = DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                if ((dtVenci - DateTime.Today).TotalDays <= 3)
+                {
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(255, 128, 128);
+
+                }
+                // Ajustando a largura de todas as colunas
+                foreach (DataGridViewColumn col in dataGridView1.Columns)
+                {
+                    col.Width = 170;  // Largura de todas as colunas
+                }
+
+                // Ajustando a altura das linhas
+                dataGridView1.RowTemplate.Height = 80;  // Tamanho das linhas
+
+                // Aumentando o tamanho da fonte dos cabeçalhos das colunas
+                dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);  // Fonte dos cabeçalhos das colunas
+            }
+        }
     }
 }

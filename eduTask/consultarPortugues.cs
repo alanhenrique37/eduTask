@@ -151,5 +151,7 @@ namespace eduTask
             // Aumentando o tamanho da fonte dos cabeçalhos das colunas
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);  // Fonte dos cabeçalhos das colunas
         }
+
+        
     }
 }

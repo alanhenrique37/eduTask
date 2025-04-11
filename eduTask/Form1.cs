@@ -19,11 +19,11 @@ namespace eduTask
         {
             consul = new DAO();
             InitializeComponent();
-            ConfigurarDataGrid();//Configuro a estrutura da coluna e linha
-            NomeColunas();//Nomeando as colunas
-            AdicionarDados();//Adicionando os dados para visualizar
-           
-            
+            ConfigurarDataGrid(dataGridView1);//Configuro a estrutura da coluna e linha
+            NomeColunas(dataGridView1);//Nomeando as colunas
+            AdicionarDados(dataGridView1);//Adicionando os dados para visualizar
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -32,32 +32,49 @@ namespace eduTask
            
 
         }
-        public void NomeColunas()
+
+        public void Limpar(DataGridView dataGrid)
         {
-            dataGridView1.Columns[0].Name = "Código";
-            dataGridView1.Columns[1].Name = "Matéria";
-            dataGridView1.Columns[2].Name = "Professor";
-            dataGridView1.Columns[3].Name = "Data";
-            dataGridView1.Columns[4].Name = "Conteúdo";
-            dataGridView1.Columns[5].Name = "Status";
+            dataGrid.DataSource = null;
+            dataGrid.Columns.Clear();
+            dataGrid.Rows.Clear();
+            dataGrid.Refresh();
+        }//fim do método
+
+        public void ChamarMetodo(DataGridView dataGrid)
+        {
+            InitializeComponent();
+            ConfigurarDataGrid(dataGrid);//Configuro a estrutura da coluna e linha
+            NomeColunas(dataGrid);//Nomeando as colunas
+            AdicionarDados(dataGrid);//Adicionando os dados para visualizar
+        }//fim do chamar
+
+        public void NomeColunas(DataGridView dataGrid)
+        {
+            dataGrid.Columns[0].Name = "Código";
+            dataGrid.Columns[1].Name = "Matéria";
+            dataGrid.Columns[2].Name = "Professor";
+            dataGrid.Columns[3].Name = "Data";
+            dataGrid.Columns[4].Name = "Conteúdo";
+            dataGrid.Columns[5].Name = "Status";
         }//fim do nomeColunas
 
-        public void ConfigurarDataGrid()
+        public void ConfigurarDataGrid(DataGridView dataGrid)
         {
-            dataGridView1.AllowUserToAddRows = false;//Não pode adicionar linhas
-            dataGridView1.AllowUserToDeleteRows = false;//Não pode apagar linhas
-            dataGridView1.AllowUserToResizeColumns = false;//Não pode redimensionar as colunas
-            dataGridView1.AllowUserToResizeRows = false;//Não pode redimensionar as linhas
+            dataGrid.AllowUserToAddRows = false;//Não pode adicionar linhas
+            dataGrid.AllowUserToDeleteRows = false;//Não pode apagar linhas
+            dataGrid.AllowUserToResizeColumns = false;//Não pode redimensionar as colunas
+            dataGrid.AllowUserToResizeRows = false;//Não pode redimensionar as linhas
 
-            dataGridView1.ColumnCount = 6;
+            dataGrid.ColumnCount = 6;
         }//fim do método de configuração
 
-        public void AdicionarDados()
+        public void AdicionarDados(DataGridView dataGrid)
         {
             consul.PreencherVetor();//Preencher os vetores c/dados do bd
             for (int i = 0; i < consul.QuantidadeDeDados(); i++)
             {
-                dataGridView1.Rows.Add(consul.codigo[i], consul.materia[i], consul.professor[i], consul.dataa[i], consul.conteudo[i], consul.situacao[i]);
+                dataGrid.Rows.Add(consul.codigo[i], consul.materia[i], consul.professor[i], consul.dataa[i], consul.conteudo[i], consul.situacao[i]);
             }//fim do for
         }//fim do adicionarDados
 
@@ -165,6 +182,17 @@ namespace eduTask
             path.AddArc(0, button6.Height - raio, raio, raio, 90, 90);
             path.CloseAllFigures();
             button6.Region = new Region(path);
+        } // Fim
+
+        private void ArredondarBotaoRel(Button button10, int raio)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(0, 0, raio, raio, 180, 90);
+            path.AddArc(button10.Width - raio, 0, raio, raio, 270, 90);
+            path.AddArc(button10.Width - raio, button10.Height - raio, raio, raio, 0, 90);
+            path.AddArc(0, button10.Height - raio, raio, raio, 90, 90);
+            path.CloseAllFigures();
+            button10.Region = new Region(path);
         } // Fim
 
         private void ArredondarListView1(ListView listView1, int raio)
@@ -312,6 +340,15 @@ namespace eduTask
 
             button9.FlatAppearance.BorderSize = 0; // Remove a borda
 
+            button10.FlatStyle = FlatStyle.Flat;
+
+            button10.FlatAppearance.BorderSize = 0; // Remove a borda
+
+            button11.FlatStyle = FlatStyle.Flat;
+
+            button11.FlatAppearance.BorderSize = 0; // Remove a borda
+
+
             button6.FlatStyle = FlatStyle.Flat;
 
             button6.FlatAppearance.BorderSize = 0; // Remove a borda
@@ -343,6 +380,7 @@ namespace eduTask
             ArredondarBotaoGeo(button6, 10);
             ArredondarBotaoAdicionar(button3, 90);
             ArredondarBotaoLupa(button1, 10);
+            ArredondarBotaoRel(button10, 10);
             ArredondarListView1(listView1, 20);
             ArredondarListView3(listView3, 20);
             ArredondarListView4(listView4, 20);
@@ -484,14 +522,16 @@ namespace eduTask
             conHis.ShowDialog();
         }
 
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }//fim do método
+      
 
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public DataGridView dtGrid()
+        {
+            return dataGridView1;
         }
 
         private void dataGridView1_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
@@ -524,7 +564,23 @@ namespace eduTask
 
         }
 
-        
+        private void button10_Click(object sender, EventArgs e)
+        {
+            relatorioTarefas rel = new relatorioTarefas();
+            rel.ShowDialog();
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Atualizar();
+        }
+
+        public void Atualizar()
+        {
+            paginaPrincipal form1 = new paginaPrincipal();
+            form1.Limpar(dataGridView1);
+            form1.ChamarMetodo(dataGridView1);
+        }
+    }
     }
 
